@@ -15,20 +15,25 @@ const clock_digital_value =document.querySelector('.clock_digital_value');
 
 
 function modeswitch(){
+    const isLightMode= body.classList.contains('Light');
+    mode_switch.innerHTML=isLightMode?'Dark Mode':"Light Mode";
+
     body.classList.toggle('Light');
     clock.classList.toggle('Light');
     clock_digital.classList.toggle('Light');
     mode_switch.classList.toggle('Light');
     title.classList.toggle("Light");
-    clock.style.setProperty('--boxAfterBackColor','black');
+    clock_digital_value.classList.toggle("Light");
+    
+    const light=isLightMode?'white':'black';
+    clock.style.setProperty('--boxAfterBackColor',`${light}`);
     for(i=0;i<12;i++){
         b[i].classList.toggle("Light");
     }
 
-    clock_digital_value.classList.toggle("Light");
+    
 
-    const isLightMode= body.classList.contains('Light');
-    mode_switch.innerHTML=isLightMode?'Dark Mode':"Light Mode";
+    
     // for (var i=0, max=all.length; i < max; i++) {
     //     // all[i].style.color = "black";
     //     all[i].classList.toggle('Light');
